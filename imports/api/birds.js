@@ -24,22 +24,18 @@ Meteor.methods({
             name:array[0],
             number:array[1]
         })
+      },
+      
+      'birds.remove'(id){
+        Birds.remove({_id:id})
+      },
+
+      'birds.increaseCount'(_id) {
+          Birds.update(
+            { _id},
+            { $inc: {number: 1}  }
+          );
       }
 
-      //
-      // 'birds.update'(_id, updates) {
-      //   if (!this.userId) {
-      //     throw new Meteor.Error('not-authorized');
-      //   }
-      //     Birds.update({
-      //     _id,
-      //     userId: this.userId
-      //   }, {
-      //     $set: {
-      //       updatedAt: moment().valueOf(),
-      //       ...updates
-      //     }
-      //
-      //   });
-      // }
-    });
+
+});

@@ -10,35 +10,47 @@ export class AddSighting extends React.Component {
     constructor(props) {
       super(props);
       this.state={
-       name:'',
-       number:0
+       error:''
 
       }
     }
 
-    removeSightings(){
+    removeSightings(id){
+          this.props.meteorCall('birds.remove',id);
         console.log("remove sighting clicked");
     }
 
-    increaseNumber(){
+    increaseNumber(id){
+        this.props.meteorCall('birds.increaseCount',id);
         console.log("increaseNumber sighting clicked");
     }
 
-    decreaseNumber(){
-        console.log("decreaseNumber sighting clicked");
-    }
+
 
 
 
     //add new bird sighting
     addSighting(e){
         e.preventDefault();
+        this.setState({error:''});
         //get valuees from form
         let name = this.refs.birdName.value.trim().toLowerCase();
-        let number = this.refs.birdNumber.value;
+        let number = Number(this.refs.birdNumber.value);
 
-        //insert into database
-        this.props.meteorCall('birds.insert',[name, number]);
+        console.log("Name", name, "number",number);
+        if(name != 0 && number != 0){
+          //insert into database
+          this.props.meteorCall('birds.insert',[name, number]);
+        }
+        else if(name == 0){
+            this.setState({error:'Must enter bird name'});
+        }else if(number == 0){
+          this.setState({error:'Must enter bird number'});
+        }
+        else{
+            this.setState({error:'Must enter bird name and number'});
+        }
+
 
         //clear input values
         this.refs.birdName.value = '';
@@ -51,9 +63,8 @@ export class AddSighting extends React.Component {
             return this.props.sightingsArray.map((sighting)=>{
                     return<div>
                               <p key={sighting._id}>  {sighting.name} seen  {sighting.number} times </p>
-                              <button className='button-comment'  onClick={this.removeSightings.bind(this)}>Remove All Sightings of this bird </button>
-                              <button className='button-comment'  onClick={this.increaseNumber.bind(this)}>Increase Number</button>
-                              <button className='button-comment'  onClick={this.decreaseNumber.bind(this)}>Decrease Number</button>
+                              <button className='button-comment'  onClick={this.removeSightings.bind(this, sighting._id)}>Remove All Sightings of this bird </button>
+                              <button className='button-comment'   onClick={this.increaseNumber.bind(this, sighting._id)}>Increase Number</button>
                           </div>
               })
     }
@@ -66,11 +77,13 @@ export class AddSighting extends React.Component {
                                 <PrivateHeader  title="Add Sighting"  />
                           </div>
                       </div>
+                        <Link to ="/">Home</Link>
 
                       {this.renderBirdSightings()}
                       <form onSubmit={this.addSighting.bind(this)}>
                             <input className = "comment-textbox" ref="birdName" placeholder="Add a comment"></input>
                             <input className = "comment-textbox" ref="birdNumber" type="number" min="1"></input>
+                            <p>{this.state.error != '' ? this.state.error: ''}</p>
                             <button className='button-comment'  >Add New Sighting </button>
 
                       </form>
