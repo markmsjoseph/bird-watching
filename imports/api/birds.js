@@ -18,11 +18,11 @@ Meteor.methods({
       'birds.insert'(array){
         //if there is no user, you cannot insert a note
 
-        console.log("INSERTING BIRD");
+        console.log("INSERTING BIRD ", array[0], array[1]);
         //notes.insert gives the  reutn value of id.
         return Birds.insert({
-            name:'Keskidee',
-            number:5
+            name:array[0],
+            number:array[1]
         })
       }
 

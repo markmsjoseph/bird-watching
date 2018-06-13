@@ -11,25 +11,21 @@ export  class BirdSighting extends React.Component {
 
     }
 
-
     renderBirdSightings(){
             return this.props.sightingsArray.map((sighting)=>{
                     return<div>
-                              <p key={sighting.name}>  {sighting.name} seen  {sighting.number} times </p>
+                              <p key={sighting._id}>  {sighting.name} seen  {sighting.number} times </p>
                           </div>
               })
     }
 
-
     render() {
-
         return <div>
-                  <AddSighting currentSightings={this.sightingsArray} />
                   {this.renderBirdSightings()}
               </div>
     }
 
-}
+}//end class
 
 
 export default createContainer(() => {
