@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema from 'simpl-schema';
-import { Accounts } from 'meteor/accounts-base';
+
 // You have only the stub method when you use Meteor.methods you need a method on the server side, whereas the client side is optional to simulate latency compensation.
 
 // The way a Meteor call works is when you run a call it will immediately fire the client side one to simulate some UI effect while a response is returned from the server, then the server side call is fired.
@@ -12,8 +12,8 @@ import { Accounts } from 'meteor/accounts-base';
 // If you want to have a method where only the client side has an effect you should use a standard js method instead, without the var keyword to ensure its globally scoped (and can be accessed from other client side files)
 //
 
-import '../imports/api/users';
 
+import '../imports/api/birds';
 Meteor.startup(() => {
 
 
