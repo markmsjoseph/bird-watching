@@ -64,7 +64,7 @@ export  default class BirdSighting extends React.Component {
     renderBirdSightings(){
             return this.state.birds.map((sighting)=>{
                     return<div>
-                              <p key={sighting._id}>  {sighting.name} seen  {sighting.number} times </p>
+                              <p className="list-group-item item-list" key={sighting._id}>  {sighting.name} seen  {sighting.number} times </p>
                           </div>
               })
     }
@@ -76,13 +76,10 @@ export  default class BirdSighting extends React.Component {
               <input className = 'inputspacing search-form form-control form-control-lg ' type="text" placeholder="SEARCH" onChange={this.handleSearch.bind(this)}/><br/>
           </div>
 
-          <div className="row justify-content-center">
 
-
-          </div>
             {this.renderBirdSightings()}
 
-            <div class="bs-example">
+            <div class="bs-example backgroundPurple">
 
               <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
                 <div class="container-fluid">
@@ -103,12 +100,7 @@ export  default class BirdSighting extends React.Component {
                 <div class="container-fluid">
                   <div className="row justify-content-right fullWidth">
                   <div class="navbar-header ">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"> </span>
-                      <span class="icon-bar"></span>
-                    </button>
+                    <button type="button" class="navbar-toggle collapsed btn btn-primary btn-circle btn-lg backgroundPurple" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><i class="glyphicon glyphicon-list"></i></button>
 
                   </div>
                 </div>

@@ -61,10 +61,12 @@ export class AddSighting extends React.Component {
 
     renderBirdSightings(){
             return this.props.sightingsArray.map((sighting)=>{
-                    return<div>
-                              <p key={sighting._id}>  {sighting.name} seen  {sighting.number} times </p>
-                              <button className='button-comment'  onClick={this.removeSightings.bind(this, sighting._id)}>Remove All Sightings of this bird </button>
-                              <button className='button-comment'   onClick={this.increaseNumber.bind(this, sighting._id)}>Increase Number</button>
+                    return<div className="list-group-item item-list">
+                              <p  key={sighting._id}>  {sighting.name} seen  {sighting.number} times </p>
+                              <div>
+                                    <button className='btn-default button-comment margins'  onClick={this.removeSightings.bind(this, sighting._id)}>Remove From List </button>
+                                    <button className='btn-default button-comment margins'   onClick={this.increaseNumber.bind(this, sighting._id)}>Increase Number</button>
+                              </div>
                           </div>
               })
     }
@@ -93,17 +95,29 @@ export class AddSighting extends React.Component {
 
                       </div>
 
+                      <div>
 
-                      {this.renderBirdSightings()}
-                      <form onSubmit={this.addSighting.bind(this)}>
-                            <input className = "comment-textbox" ref="birdName" placeholder="Add a comment"></input>
-                            <input className = "comment-textbox" ref="birdNumber" type="number" min="1"></input>
-                            <p>{this.state.error != '' ? this.state.error: ''}</p>
-                            <button className='sort_button button-comment'  >Add New Sighting </button>
+                          {this.renderBirdSightings()}
+                      </div>
 
-                      </form>
+                      <div className="row justify-content-center mr-0">
+                         <div class="col-lg-4 col-md-4 col-sm-4 col-sm-12 ">
+                                <form onSubmit={this.addSighting.bind(this)}>
 
-          
+                                      <input className = "margins form-control" ref="birdName" placeholder="Enter birdname"></input>
+
+                                      <input className = "margins form-control" ref="birdNumber" type="number" min="1"></input>
+
+                                      <p>{this.state.error != '' ? this.state.error: ''}</p>
+                                      <button className='sort_button button-comment'  >Add New Sighting </button>
+
+
+
+                                </form>
+                          </div>
+                        </div>
+
+
               </div>
     }
 

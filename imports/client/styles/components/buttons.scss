@@ -31,3 +31,21 @@ background-color: #6200ee;
 color: white;
 border: 2px solid #a363ff;
 }
+
+.button-remove{
+  position: absolute;
+    right: 23px;
+    top: 29%;
+    background-color: $darkColor;
+}
+.btn-warning {
+    color: #fff;
+    background-color: $darkColor !important;
+    border-color: $mediumColor;
+        border-radius: 11px !important;
+}
+.button-comment{
+  padding: 4px;
+border: solid 2px #6200ee;
+font-family: -webkit-body;
+}
