@@ -76,17 +76,34 @@ export class AddSighting extends React.Component {
                           <div className = "jumborton">
                                 <PrivateHeader  title="Add Sighting"  />
                           </div>
+                          <nav class="navbar navbar-expand-md navbar-dark justify-content-center noMargin">
+                                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                                    <span class="navbar-toggler-icon"></span>
+                                  </button>
+
+                                  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                                            <ul class="navbar-nav">
+
+                                              <li class="nav-item">
+                                                <Link to ="/">Home</Link>
+                                              </li>
+                                            </ul>
+                                  </div>
+                        </nav>
+
                       </div>
-                        <Link to ="/">Home</Link>
+
 
                       {this.renderBirdSightings()}
                       <form onSubmit={this.addSighting.bind(this)}>
                             <input className = "comment-textbox" ref="birdName" placeholder="Add a comment"></input>
                             <input className = "comment-textbox" ref="birdNumber" type="number" min="1"></input>
                             <p>{this.state.error != '' ? this.state.error: ''}</p>
-                            <button className='button-comment'  >Add New Sighting </button>
+                            <button className='sort_button button-comment'  >Add New Sighting </button>
 
                       </form>
+
+          
               </div>
     }
 

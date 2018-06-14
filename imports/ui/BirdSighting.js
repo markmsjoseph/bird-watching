@@ -71,10 +71,50 @@ export  default class BirdSighting extends React.Component {
 
     render() {
         return <div>
-              <input className = ' search-form form-control form-control-lg ' type="text" placeholder="SEARCH" onChange={this.handleSearch.bind(this)}/><br/>
-          <button className=" sort_button " onClick={this.onSortByDesc.bind(this)}>Sort by least common sightings</button>
-          <button className=" sort_button " onClick={this.onSortByAsec.bind(this)}>Sort by most common sightings</button>
+          <div className="row justify-content-center">
+
+              <input className = 'inputspacing search-form form-control form-control-lg ' type="text" placeholder="SEARCH" onChange={this.handleSearch.bind(this)}/><br/>
+          </div>
+
+          <div className="row justify-content-center">
+
+
+          </div>
             {this.renderBirdSightings()}
+
+            <div class="bs-example">
+
+              <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+                <div class="container-fluid">
+
+                  <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" >
+                    <ul class="nav navbar-nav bottomleft">
+                      <button className=" sort_button " onClick={this.onSortByAsec.bind(this)}>Sort by most common sightings</button>
+                      <button className=" sort_button " onClick={this.onSortByDesc.bind(this)}>Sort by least common sightings</button>
+
+                    </ul>
+
+                  </div>
+                </div>
+              </nav>
+
+              <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+
+                <div class="container-fluid">
+                  <div className="row justify-content-right fullWidth">
+                  <div class="navbar-header ">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"> </span>
+                      <span class="icon-bar"></span>
+                    </button>
+
+                  </div>
+                </div>
+              </div>
+              </nav>
+            </div>
               </div>
     }
 

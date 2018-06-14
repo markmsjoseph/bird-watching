@@ -15,14 +15,30 @@ export class Home extends React.Component {
       render() {
           return (
                   <div>
-                      <div className = "container-fluid header">
-                            <div className = "jumborton">
-                                  <PrivateHeader  title="Bird Watching App"  />
+                        <div className = "container-fluid header">
+                              <div className = "jumborton">
+                                    <PrivateHeader  title="Bird Watching App"  />
+                              </div>
+                              <nav class="navbar navbar-expand-md navbar-dark justify-content-center noMargin">
+                                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                                        <span class="navbar-toggler-icon"></span>
+                                      </button>
 
-                            </div>
+                                      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                                                <ul class="navbar-nav">
+
+                                                  <li class="nav-item">
+                                                    <Link to ="/addSighting">Manage Sightings</Link>
+                                                  </li>
+                                                </ul>
+                                      </div>
+                            </nav>
+
                         </div>
-                        <Link to ="/addSighting">Add Sighting</Link>
+
+
                         <BirdSighting />
+
 
                   </div>
           );
