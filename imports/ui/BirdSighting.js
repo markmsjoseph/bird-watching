@@ -90,35 +90,11 @@ export  default class BirdSighting extends React.Component {
  </FlipMove>
                     {/* bottom menu */}
 
-                    <div className="bs-example backgroundPurple" >
-
-                            <nav className="navbar navbar-default navbar-fixed-bottom" role="navigation">
-                              <div className="container-fluid">
-
-                                <div className="navbar-collapse collapse" id="bs-example-navbar-collapse-1" >
-                                  <ul className="nav navbar-nav bottomleft">
+                              <div className="softButtonContainer">
                                     <button className=" sort_button " onClick={this.onSortByAsec.bind(this)}>Sort by most common sightings</button>
                                     <button className=" sort_button " onClick={this.onSortByDesc.bind(this)}>Sort by least common sightings</button>
-
-                                  </ul>
-
-                                </div>
                               </div>
-                            </nav>
 
-                            <nav className="navbar navbar-default navbar-fixed-bottom" role="navigation">
-
-                              <div className="container-fluid">
-                                <div className="row justify-content-right fullWidth">
-                                <div className="navbar-header ">
-                                  <button type="button" className="navbar-toggle collapsed btn btn-primary btn-circle btn-lg backgroundPurple" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><i className="glyphicon glyphicon-list"></i></button>
-
-                                </div>
-                              </div>
-                            </div>
-                            </nav>
-
-                    </div>
 
 
               </div>

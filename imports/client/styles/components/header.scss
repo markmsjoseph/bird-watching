@@ -1,14 +1,34 @@
 .header{
-  padding: 25px;
+
   padding-bottom: 0px;
   background-color: $mediumColor;
+
 
 }
 
 .header-title{
-  font-size: 60px;
+  font-size: 24px;
   color:white;
+  @include smallestPhoneSizes{
+
+  }
+
+  @include mediumSizedPhones{
+
+  }
+
+  @include tablets{
+
+  }
+
+
+  @include desktopView{
+      font-size: 60px;
+  }
+
 }
+
+
 
 
 .header-loggedInAs{
