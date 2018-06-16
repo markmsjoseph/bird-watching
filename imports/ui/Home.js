@@ -19,15 +19,15 @@ export class Home extends React.Component {
                               <div className = "jumborton">
                                     <PrivateHeader  title="Bird Watching App"  />
                               </div>
-                              <nav class="navbar navbar-expand-md navbar-dark justify-content-center noMargin">
-                                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                                        <span class="navbar-toggler-icon"></span>
+                              <nav className="navbar navbar-expand-md navbar-dark justify-content-center noMargin">
+                                      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                                        <span className="navbar-toggler-icon"></span>
                                       </button>
 
-                                      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                                                <ul class="navbar-nav">
+                                      <div className="collapse navbar-collapse" id="collapsibleNavbar">
+                                                <ul className="navbar-nav">
 
-                                                  <li class="nav-item">
+                                                  <li className="nav-item">
                                                     <Link to ="/addSighting">Manage Sightings</Link>
                                                   </li>
                                                 </ul>

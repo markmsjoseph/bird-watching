@@ -4,6 +4,8 @@ import AddSighting from './AddSighting';
 import { createContainer } from 'meteor/react-meteor-data';
 import {Birds} from '../api/birds';
 import {Tracker} from 'meteor/tracker';
+import { CSSTransitionGroup } from 'react-transition-group';
+import FlipMove from 'react-flip-move';
 
 export  default class BirdSighting extends React.Component {
 
@@ -27,6 +29,7 @@ export  default class BirdSighting extends React.Component {
 
     }
 
+
     onSortByDesc(){
       //sort must get 2 arguments, first is what we are finding, then the sort params
       const allBirds = Birds.find({}, {sort:{number:-1}}).fetch();
@@ -34,11 +37,13 @@ export  default class BirdSighting extends React.Component {
 
     }
 
+
     onSortByAsec(){
       const allBirds = Birds.find({}, {sort:{number:1}}).fetch();
       this.setState({birds:allBirds});
 
     }
+
 
     handleSearch(e){
         e.preventDefault();
@@ -63,60 +68,60 @@ export  default class BirdSighting extends React.Component {
     //displays all bird sightings
     renderBirdSightings(){
             return this.state.birds.map((sighting)=>{
-                    return<div>
-                              <p className="list-group-item item-list" key={sighting._id}>  {sighting.name} seen  {sighting.number} times </p>
+                    return<div key={sighting._id}>
+                              <p className="list-group-item item-list" >  {sighting.name} seen  {sighting.number} times </p>
                           </div>
               })
     }
 
+
     render() {
         return <div>
-          <div className="row justify-content-center">
 
-              <input className = 'inputspacing search-form form-control form-control-lg ' type="text" placeholder="SEARCH" onChange={this.handleSearch.bind(this)}/><br/>
-          </div>
+                    {/* Searchbar*/}
+                    <div className="row justify-content-center">
+                        <input className = 'inputspacing search-form form-control form-control-lg ' type="text" placeholder="SEARCH" onChange={this.handleSearch.bind(this)}/><br/>
+                    </div>
+
+                    {/* renders list of items*/}
+                 <FlipMove>
+
+                    {this.renderBirdSightings()}
+ </FlipMove>
+                    {/* bottom menu */}
+
+                    <div className="bs-example backgroundPurple" >
+
+                            <nav className="navbar navbar-default navbar-fixed-bottom" role="navigation">
+                              <div className="container-fluid">
+
+                                <div className="navbar-collapse collapse" id="bs-example-navbar-collapse-1" >
+                                  <ul className="nav navbar-nav bottomleft">
+                                    <button className=" sort_button " onClick={this.onSortByAsec.bind(this)}>Sort by most common sightings</button>
+                                    <button className=" sort_button " onClick={this.onSortByDesc.bind(this)}>Sort by least common sightings</button>
+
+                                  </ul>
+
+                                </div>
+                              </div>
+                            </nav>
+
+                            <nav className="navbar navbar-default navbar-fixed-bottom" role="navigation">
+
+                              <div className="container-fluid">
+                                <div className="row justify-content-right fullWidth">
+                                <div className="navbar-header ">
+                                  <button type="button" className="navbar-toggle collapsed btn btn-primary btn-circle btn-lg backgroundPurple" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><i className="glyphicon glyphicon-list"></i></button>
+
+                                </div>
+                              </div>
+                            </div>
+                            </nav>
+
+                    </div>
 
 
-            {this.renderBirdSightings()}
-
-            <div class="bs-example backgroundPurple">
-
-              <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-                <div class="container-fluid">
-
-                  <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" >
-                    <ul class="nav navbar-nav bottomleft">
-                      <button className=" sort_button " onClick={this.onSortByAsec.bind(this)}>Sort by most common sightings</button>
-                      <button className=" sort_button " onClick={this.onSortByDesc.bind(this)}>Sort by least common sightings</button>
-
-                    </ul>
-
-                  </div>
-                </div>
-              </nav>
-
-              <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-
-                <div class="container-fluid">
-                  <div className="row justify-content-right fullWidth">
-                  <div class="navbar-header ">
-                    <button type="button" class="navbar-toggle collapsed btn btn-primary btn-circle btn-lg backgroundPurple" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><i class="glyphicon glyphicon-list"></i></button>
-
-                  </div>
-                </div>
-              </div>
-              </nav>
-            </div>
               </div>
     }
 
 }//end class
-
-
-// export default createContainer(() => {
-//     Meteor.subscribe('allBirdSightings');
-//     return {
-//       sightingsArray:Birds.find({}).fetch()
-//     };
-//
-// },BirdSighting);

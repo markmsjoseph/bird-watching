@@ -1,0 +1,36 @@
+.bottomMenuAnimation-enter {
+  opacity: 0.01;
+  top:100px;
+}
+
+.bottomMenuAnimation-enter.bottomMenuAnimation-enter-active {
+  opacity: 1;
+  top:300px;
+  transition: all 500ms ease-in;
+}
+
+
+
+
+
+.slide-enter {
+  opacity: 0.01;
+  right:100px;
+}
+
+.slide-enter.slide-enter-active {
+  opacity: 1;
+  transition: 500ms ease-in all;
+    right:0px;
+}
+
+.slide-leave {
+opacity: 1;
+  left:0%;
+}
+
+.slide-leave.slide-leave-active {
+opacity: 0.01;
+  transition: 700ms ease-in all;
+    left:100%;
+}
