@@ -1,5 +1,3 @@
-# Meteor Boilerplate
+# Bird Watching App
 
-## Mark Joseph
-
-### 
+### No Authentication. Animations used. Users can add to a list of birds seen
