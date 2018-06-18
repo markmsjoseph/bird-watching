@@ -1,4 +1,4 @@
-# Bird Watching App
+# Bird Watching App - Built using react.js and meteor
 
 ## Mark Joseph
 
